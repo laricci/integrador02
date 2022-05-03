@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\ContactFormController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,3 +40,6 @@ Route::prefix('/firebase')->group(function(){
     // Exemplo de inserção de dados no Firebase
     Route::get('example'    , [TestController::class, 'example']);
 });
+
+// Teste post de form com VUE
+Route::post('/submit'   , [ContactFormController::class, 'submit']);
