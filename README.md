@@ -7,6 +7,7 @@ Referências:
  - 13/04/2022 https://www.w3schools.com/js/js_validation.asp
  - 13/04/2022 https://stackoverflow.com/questions/69631437/error-cannot-find-module-webpack-lib-rules-descriptiondatamatcherruleplugin-r
  - 13/04/2022 https://stackoverflow.com/questions/29822686/curl-error-60-ssl-certificate-unable-to-get-local-issuer-certificate
+ - 03/05/2022 https://medium.com/@mscherrenberg/laravel-5-6-vue-js-simple-form-submission-using-components-92b6d5fd4434
  
 PHP:
  - Ativar extension=sodium
