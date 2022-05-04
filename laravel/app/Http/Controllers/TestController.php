@@ -52,14 +52,14 @@ class TestController extends Controller
     /**
      *  Only for testing
      */
-    public function example()
+    public static function example($teste)
     {
         $database = \App\Services\FirebaseService::connect();
         $newPost  = $database
             ->getReference('blog/posts')
             ->push([
                 'title' => 'Laravel FireBase Tutorial' ,
-                'category' => 'Laravel'
+                'category' => $teste
             ]);
         echo '<pre>';
         print_r($newPost->getvalue());
