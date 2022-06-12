@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="../css/myCss.css">
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+
+    <section>
+        <button onclick="$('#modal_cliente').show()" class="">
+            Show Modal
+        </button>
+    </section>
+    
+    <!-- Form Modal -->
+    <div class="modal" id="modal_cliente">
+    <div class="modal__body">
+
+        <form action="/action_page.php">
+
+            <!-- Form Modal Header -->
+            <div class="modal__header">
+                <span>Adicionar Cliente</span>
+                <div onclick="$('#modal_cliente').hide()" class="btn_close">
+                    <span class="material-symbols-rounded">
+                        close
+                    </span>
+                </div>
+            </div>
+
+            <!-- Form Modal Content -->
+            <div class="modal__content">
+
+                <div>
+                    <div class="form__label">Identificação</div>
+                    <div class="form__group" id="cliente_identificacao">
+            
+                        <div class="form__item">
+                            <label for="cliente_razao_social">Razão Social:</label>
+                            <input type="text" id="cliente_razao_social" name="cliente_razao_social" value="{{cliente_razao_social}}">
+                        </div>
+                
+                        <div class="form__item">
+                            <label for="cliente_nome_fantasia">Nome Fantasia:</label>
+                            <input type="text" id="cliente_nome_fantasia" name="cliente_nome_fantasia" value="{{cliente_nome_fantasia}}">
+                        </div>
+                
+                        <div class="form__item">
+                            <label for="cliente_tipo_pessoa">Tipo de Pessoa:</label>
+                            <input type="text" id="cliente_tipo_pessoa" name="cliente_tipo_pessoa" value="{{cliente_tipo_pessoa}}">
+                        </div>
+                
+                        <div class="form__item">
+                            <label for="cliente_inscricao">CNPJ / CPF:</label>
+                            <input type="text" id="cliente_inscricao" name="cliente_inscricao" value="{{cliente_inscricao}}">
+                        </div>
+            
+                    </div>
+                </div>
+        
+                <div>
+                    <div class="form__label">Endereço</div>
+                    <div class="form__group" id="cliente_endereco">
+            
+                        <div class="form__item">
+                            <label for="cliente_endereco">Endereço:</label>
+                            <input type="text" id="cliente_endereco" name="cliente_endereco" value="{{cliente_endereco}}">
+                        </div>
+            
+                        <div class="form__item">
+                            <label for="cliente_cidade">Cidade:</label>
+                            <input type="text" id="cliente_cidade" name="cliente_cidade" value="{{cliente_cidade}}">
+                        </div>
+            
+                        <div class="form__item">
+                            <label for="cliente_uf">UF:</label>
+                            <input type="text" id="cliente_uf" name="cliente_uf" value="{{cliente_uf}}">
+                        </div>
+            
+                    </div>
+                </div>
+        
+                <div>
+                    <div class="form__label">Contato</div>
+                    <div class="form__group" id="cliente_contato">
+            
+                        <div class="form__item">
+                            <label for="cliente_nome_contato">Nome do contato:</label>
+                            <input type="text" id="cliente_nome_contato" name="cliente_nome_contato" value="{{cliente_nome_contato}}">
+                        </div>
+            
+                        <div class="form__item">
+                            <label for="cliente_celular">Celular:</label>
+                            <input type="text" id="cliente_celular" name="cliente_celular" value="{{cliente_celular}}">
+                        </div>
+            
+                        <div class="form__item">
+                            <label for="cliente_telefone">Telefone:</label>
+                            <input type="text" id="cliente_telefone" name="cliente_telefone" value="{{cliente_telefone}}">
+                        </div>
+            
+                        <div class="form__item">
+                            <label for="cliente_email">E-mail:</label>
+                            <input type="text" id="cliente_email" name="cliente_email" value="{{cliente_email}}">
+                        </div>
+            
+                    </div>
+                </div>
+        
+                <div>
+                    <div class="form__label">Dados Adicionais</div>
+                    <div class="form__group" id="cliente_adicional">
+            
+                        <div class="form__item">
+                            <label for="cliente_segmento">Segmento de Atuação:</label>
+                            <input type="text" id="cliente_segmento" name="cliente_segmento" value="{{cliente_segmento}}">
+                        </div>
+            
+                        <div class="form__item">
+                            <label for="cliente_obs">Observações:</label>
+                            <input type="text" id="cliente_obs" name="cliente_obs" value="{{cliente_obs}}">
+                        </div>
+            
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Form Modal Control -->
+            <div class="modal__control">
+                <div class="control__left">
+                    <button type="submit" class="btn__save">Salvar</button>
+                    <button type="reset" class="btn__reset">Redefinir</button>
+                </div>
+                <div onclick="$('#modal_cliente').hide()" class="control__right">
+                    <div class="btn__cancel">Cancelar</div>
+                </div>
+            </div>
+
+        </form> 
+
+    </div>
+    </div>
+
+</body>
+</html>
