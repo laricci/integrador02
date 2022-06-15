@@ -247,6 +247,7 @@ main section {
     height: 100%;
     top: 0;
     right: 0;
+    z-index: 101;
     background-color: rgb(0, 0, 0, 0.3);
 }
 
@@ -302,7 +303,7 @@ main section {
 .form__item {
     padding: .5rem .75rem;
     background-color: var(--color-secondary);
-    border-radius: .5em;
+    border-radius: .3em;
     display: flex;
     flex-direction: column;
 }
@@ -336,7 +337,7 @@ main section {
 .btn__options {
     height: 1.5rem;
     padding: 0 .5rem;
-    border-radius: .5em;
+    border-radius: .3em;
     color: var(--color-secondary);
     border: 1px solid var(--color-tertiary);
     gap: .25rem;
@@ -353,7 +354,7 @@ main section {
     line-height: var(--text-size-medium);
     height: 1.5rem;
 
-    border-radius: .5em;
+    border-radius: .3em;
     box-sizing: content-box;
     border: none;
     outline: none;
@@ -373,7 +374,7 @@ main section {
     border: none;
     outline: none;
     padding: .5rem .75rem;
-    border-radius: .5em;
+    border-radius: .3em;
     cursor: pointer;
 }
 
@@ -444,4 +445,34 @@ tbody tr:hover {
 
 td {
     border-bottom: 1px solid var(--color-secondary);
+}
+
+/** Tooltip **/
+
+.tooltip {
+    position: relative;
+}
+
+.tooltip .tooltiptext {
+    width: 100px;
+    font-size: var(--text-size-smaller);
+    visibility: hidden;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: .3em;
+    padding: .5rem;
+    transition: unset;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 50%;
+    margin-top: .25rem;
+    margin-left: -50px;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
 }
