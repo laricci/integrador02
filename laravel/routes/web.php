@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\ContactFormController;
+use App\Http\Controllers\ClientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,5 +42,15 @@ Route::prefix('/firebase')->group(function(){
     Route::get('example'    , [TestController::class, 'example']);
 });
 
+// Firebase Basic Routes
+Route::get('/cliente' , function () {
+    return view('cliente');
+});
+
+Route::prefix('/cliente')->group( function(){
+    Route::get('/list'     , [ClientController::class, 'list'])->name('cliente.list');;
+});
+
 // Teste post de form com VUE
 Route::post('/submit'   , [ContactFormController::class, 'submit']);
+Route::get('/clienttest'   , [ClientController::class, 'tests']);

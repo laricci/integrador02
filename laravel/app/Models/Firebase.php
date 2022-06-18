@@ -71,6 +71,13 @@ class Firebase
     
     //## PUBLIC METHODS ############################################################################
 
+    public function testAdd($addData, $id){
+
+        $this->_database
+                ->getReference($this->_reference . $id)
+                ->set($addData);
+    }
+
     public function list() 
     {
         $result = $this->_getSingleMessage(self::MSG_NO_RESULTS);
