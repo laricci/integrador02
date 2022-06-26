@@ -9,19 +9,19 @@
 
         <div class="menu">
             
-            <button class="menu__btn" id="btn_dashboard">
+            <button class="menu__btn" id="btn_dashboard" href="">
                 <span>Dashboard</span>
             </button>
             
-            <button class="menu__btn" id="btn_projetos">
+            <button class="menu__btn" id="btn_projetos" >
                 <span>Projetos</span>
             </button>
 
-            <button class="menu__btn" id="btn_clientes">
+            <button class="menu__btn" id="btn_clientes" onclick="location.href='{{route('cliente')}}'">
                 <span>Clientes</span>
             </button>
             
-            <button class="menu__btn" id="btn_fornecedores">
+            <button class="menu__btn" id="btn_fornecedores" onclick="location.href='{{route('fornecedor')}}'">
                 <span>Fornecedores</span>
             </button>
             

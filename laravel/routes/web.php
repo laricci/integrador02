@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\SupplierController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,20 +27,32 @@ Route::get('/vuetests', function () {
 
 // Teste post de form com VUE
 Route::post('/submit'   , [ContactFormController::class, 'submit']);
-Route::get('/clienttest'   , [ClientController::class, 'tests']);
 
 
 // Client Routes
 
 Route::get('/cliente' , function () {
     return view('cliente');
-});
+})->name('cliente');
 
 Route::prefix('/cliente')->group( function(){
-    Route::get('/list'          , [ClientController::class, 'list'])->name('cliente.list');;
-    Route::post('/add'          , [ClientController::class, 'add'])->name('cliente.add');;
-    // Route::post('/update'       , [ClientController::class, 'update'])->name('cliente.update');;
-    Route::post('/edit/{id?}'     , [ClientController::class, 'edit'])->name('cliente.edit');;
-    Route::get('/view/{id?}'     , [ClientController::class, 'view'])->name('cliente.view');;
-    Route::get('/remove/{id?}'   , [ClientController::class, 'remove'])->name('cliente.remove');;
+    Route::get('/list'          , [ClientController::class, 'list'])->name('cliente.list');
+    Route::post('/add'          , [ClientController::class, 'add'])->name('cliente.add');
+    Route::post('/edit/{id?}'   , [ClientController::class, 'edit'])->name('cliente.edit');
+    Route::get('/view/{id?}'    , [ClientController::class, 'view'])->name('cliente.view');
+    Route::get('/remove/{id?}'  , [ClientController::class, 'remove'])->name('cliente.remove');
+});
+
+// Supplier Routes
+
+Route::get('/fornecedor' , function () {
+    return view('fornecedor');
+})->name('fornecedor');
+
+Route::prefix('/fornecedor')->group( function(){
+    Route::get('/list'          , [SupplierController::class, 'list'])->name('fornecedor.list');
+    Route::post('/add'          , [SupplierController::class, 'add'])->name('fornecedor.add');
+    Route::post('/edit/{id?}'   , [SupplierController::class, 'edit'])->name('fornecedor.edit');
+    Route::get('/view/{id?}'    , [SupplierController::class, 'view'])->name('fornecedor.view');
+    Route::get('/remove/{id?}'  , [SupplierController::class, 'remove'])->name('fornecedor.remove');
 });
