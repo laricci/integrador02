@@ -90,26 +90,17 @@ class Firebase
         return response()->json($result, 200);
     }
 
-    public function add(Request $request, $id) 
+    public function add(Request $request, $addData, $id) 
     {
         $model      = $this->getModel();
         $reference  = $this->getReference();
-        $validator  = Validator::make($request->all(), $model);
+        // $validator  = Validator::make($addData, $model);
 
-        if ($validator->fails()) {
-            return response()->json($this->_getSingleMessage(self::MSG_INVALID), 422);
-        }
+        // if ($validator->fails()) {
+        //     return response()->json($this->_getSingleMessage(self::MSG_INVALID), 422);
+        // }
 
-        $addData    = array();
-        $postData   = $request->post();
-        $msg        = $this->_getSingleMessage(self::MSG_EMPTY);
-
-        foreach ($model as $field => $rule){
-            if (isset($postData[$field])){
-                $addData[$field] = $postData[$field];
-            }
-        }
-
+        $msg = $this->_getSingleMessage(self::MSG_EMPTY);
         if (count($addData)){
             $msg = $this->_getSingleMessage(self::MSG_SUCCESS_ADD);
             $this->_database
@@ -117,28 +108,28 @@ class Firebase
                 ->set($addData);
         }
         
-        return response()->json($msg, 200);
+        return response()->json(['msg' => $msg], 200);
     }
 
-    public function edit(Request $request, $id) 
+    public function edit(Request $request, $editData, $id) 
     {
         $model      = $this->getModel();
         $reference  = $this->getReference();
-        $validator  = Validator::make($request->all(), $model);
+        // $validator  = Validator::make($request->all(), $model);
 
-        if ($validator->fails()) {
-            return response()->json($this->_getSingleMessage(self::MSG_INVALID), 422);
-        }
+        // if ($validator->fails()) {
+        //     return response()->json($this->_getSingleMessage(self::MSG_INVALID), 422);
+        // }
 
-        $editData   = array();
-        $postData   = $request->post();
+        // $editData   = array();
+        // $postData   = $request->post();
         $msg        = $this->_getSingleMessage(self::MSG_EMPTY);
 
-        foreach ($model as $field => $rule){
-            if (isset($postData[$field])){
-                $editData[$field] = $postData[$field];
-            }
-        }
+        // foreach ($model as $field => $rule){
+        //     if (isset($postData[$field])){
+        //         $editData[$field] = $postData[$field];
+        //     }
+        // }
 
         if (count($editData)){
             $msg = $this->_getSingleMessage(self::MSG_SUCCESS_EDIT);

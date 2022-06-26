@@ -79,69 +79,46 @@ class ClientController extends Controller
         return $firebase->list();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function add(Request $request)
     {
-        //
+        $addData = [];
+        $addData['cliente_id'] = 'cliente_' . date("Ymdhis");
+
+        foreach($this->_validationModel as $key => $value) {
+            $addValue = $request->input($key);
+            $addData[$key] = (!is_null($addValue)) ? $addValue : '';
+        } 
+
+        $firebase = new Firebase($this->_validationModel, $this->_directory);
+        return $firebase->add($request, $addData, $addData['cliente_id']);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreClientRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreClientRequest $request)
+    public function edit(Request $request, $id = null)
     {
-        //
+        $editData = [];
+
+        foreach($this->_validationModel as $key => $value) {
+            $editValue = $request->input($key);
+            $editData[$key] = (!is_null($editValue)) ? $editValue : '';
+        } 
+
+        if (isset($editData['cliente_id'])) unset($editData['cliente_id']);
+        $firebase = new Firebase($this->_validationModel, $this->_directory);
+
+        return $firebase->edit($request, $editData, $id);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Client  $client
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Client $client)
+    public function view(Request $request, $id = null)
     {
-        //
+        $firebase = new Firebase($this->_validationModel, $this->_directory);
+        return $firebase->view($request, $id);
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Client  $client
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Client $client)
+    public function remove(Request $request, $id = null)
     {
-        //
+        $firebase = new Firebase($this->_validationModel, $this->_directory);
+        return $firebase->delete($request, $id);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateClientRequest  $request
-     * @param  \App\Models\Client  $client
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateClientRequest $request, Client $client)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Client  $client
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Client $client)
-    {
-        //
-    }
 }

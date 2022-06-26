@@ -26,6 +26,13 @@
     --color-secondary-hover: #e0e1e2;
     --color-tertiary-hover: #eb5386;
 
+    --color-remove: #eb5e5e;
+    --color-remove-hover: #cc3232;
+
+}
+
+.hide {
+    display: none !important;
 }
 
 * {
@@ -122,6 +129,11 @@ nav .menu__btn {
 
 nav .menu__btn:hover {
     background-color: var(--color-secondary);
+}
+
+nav .menu__btn.active span{
+    color: var(--color-tertiary);
+    font-weight: 800;
 }
 
 nav .tools__btn {
@@ -288,6 +300,10 @@ main section {
     column-gap: .5rem;
 }
 
+.control__right {
+    margin-left: auto;
+}
+
 .form__label {
     font-size: var(--text-size-small);
     margin-bottom: 1rem;
@@ -367,7 +383,8 @@ main section {
 
 .btn__save,
 .btn__cancel,
-.btn__reset {
+.btn__reset,
+.btn__remove {
     font-size: var(--text-size-medium);
     font-weight: 600;
     color: var(--text-color-button);
@@ -380,6 +397,7 @@ main section {
 
 /* Buttons Colors */
 
+.btn__remove,
 .btn__save {
     background-color: var(--color-primary);
 }
@@ -390,6 +408,7 @@ main section {
     background-color: var(--color-secondary);
 }
 
+.btn__remove:hover,
 .btn__save:hover {
     background-color: var(--color-primary-hover);
 }
@@ -404,6 +423,7 @@ main section {
 
 .section__table {
     background-color: var(--color-background);
+    height: 100%;
     overflow: auto;
 }
 
@@ -447,6 +467,34 @@ td {
     border-bottom: 1px solid var(--color-secondary);
 }
 
+/** Table Options **/
+
+.table__options {
+    display: flex;
+    gap: .5rem;
+}
+
+.table__options button i{
+    font-size: var(--text-size-small);
+    padding: .25rem;
+    background-color: var(--color-secondary);
+    border-radius: 50%;
+    
+}
+
+.table__options button i:hover{
+    background-color: var(--color-secondary-hover);
+}
+
+.table__options button.remove i:hover{
+    font-size: var(--text-size-small);
+    padding: .25rem;
+    background-color: var(--color-remove);
+    border-radius: 50%;
+    
+}
+
+
 /** Tooltip **/
 
 .tooltip {
@@ -475,4 +523,22 @@ td {
 
 .tooltip:hover .tooltiptext {
     visibility: visible;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    z-index: 999;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.loading img{
+    max-width: 100px;
+    max-height: 100px;
 }
