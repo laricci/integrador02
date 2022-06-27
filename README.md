@@ -1,5 +1,4 @@
 # integrador02
-Sistema de CRM Básico - Projeto Integrador II Univesp
 
 Referências:
  - 13/04/2022 https://levelup.gitconnected.com/how-to-set-up-and-use-vue-in-your-laravel-8-app-2dd0f174e1f8
